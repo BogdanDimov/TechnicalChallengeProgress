@@ -3,26 +3,27 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:TechnicalChallengeProgress"
              x:Class="TechnicalChallengeProgress.MainPage"
-             xmlns:viewModels="clr-namespace:TechnicalChallengeProgress.ViewModels">
+             xmlns:viewModels="clr-namespace:TechnicalChallengeProgress.ViewModels"
+             xmlns:views="clr-namespace:TechnicalChallengeProgress.Views">
 
     <ContentPage.BindingContext>
         <viewModels:MainViewModel />
     </ContentPage.BindingContext>
 
     <ListView x:Name="SocialUserView"
-              ItemsSource="{Binding SocialUsers}">
+              ItemsSource="{Binding SocialUsers}"
+              HasUnevenRows="True">
 
         <ListView.ItemTemplate>
             <DataTemplate>
                 <ViewCell>
                     <StackLayout Orientation="Horizontal">
-                        <Image 
-                            x:Name="Profile Picture"
-                            Aspect="AspectFill"
-                            WidthRequest="95"
-                            HeightRequest="95"
-                            VerticalOptions="Start"
-                            Source="{Binding Picture}"/>
+                        <views:CircleImage VerticalOptions="Start"
+                                            HorizontalOptions="Center"
+                                            WidthRequest="50"
+                                            HeightRequest="50"
+                                           Aspect="AspectFill"
+                                            Source="{Binding Picture}"/>
                         <Label Text="{Binding Name}"/>
                         <Label Text="{Binding SocialNetwork}"/>
                         <Label Text="{Binding StatusMessage}"/>
@@ -33,5 +34,6 @@
         </ListView.ItemTemplate>
 
     </ListView>
+
 
 </ContentPage>
