@@ -3,8 +3,9 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:TechnicalChallengeProgress"
              x:Class="TechnicalChallengeProgress.MainPage"
-             xmlns:viewModels="clr-namespace:TechnicalChallengeProgress.ViewModels"
-             xmlns:views="clr-namespace:TechnicalChallengeProgress.Views">
+             xmlns:controls="clr-namespace:TechnicalChallengeProgress.Controls;"
+             xmlns:viewModels="clr-namespace:TechnicalChallengeProgress.ViewModels;"
+             xmlns:effects="clr-namespace:TechnicalChallengeProgress.Effects;">
 
     <ContentPage.BindingContext>
         <viewModels:MainViewModel />
@@ -17,15 +18,30 @@
             <DataTemplate>
                 <ViewCell>
                     <StackLayout Orientation="Horizontal">
-                        <views:CircleImage VerticalOptions="Center"
-                                           HorizontalOptions="Center"
-                                           WidthRequest="70"
-                                           HeightRequest="70"
-                                           Aspect="Fill"
-                                           Source="{Binding Picture}"
-                                           BorderColor="Black"
-                                           BorderThickness="2.0"/>
-                        <Label Text="{Binding Name}"/>
+                        <controls:CircleImage VerticalOptions="Center"
+                                              HorizontalOptions="Center"
+                                              WidthRequest="70"
+                                              HeightRequest="70"
+                                              Aspect="Fill"
+                                              Source="{Binding Picture}"
+                                              BorderColor="Black"
+                                              BorderThickness="2.0"/>
+
+                        <Grid Padding="0,20,0,0">
+                            <Label Text="{Binding Name}" FontAttributes="Bold" HorizontalOptions="Center" VerticalOptions="CenterAndExpand">
+                                <Label.Effects>
+                                    <effects:ShadowEffect Radius="20" DistanceX="20" DistanceY="20">
+                                        <effects:ShadowEffect.Color>
+                                            <OnPlatform x:TypeArguments="Color">
+                                                <On Platform="iOS" Value="Black" />
+                                                <On Platform="Android" Value="Red" />
+                                            </OnPlatform>
+                                        </effects:ShadowEffect.Color>
+                                    </effects:ShadowEffect>
+                                </Label.Effects>
+                            </Label> />
+                        </Grid>
+                            
                         <Label Text="{Binding SocialNetwork}"/>
                         <Label Text="{Binding StatusMessage}"/>
                         <Label Text="{Binding TimeOfPosting}"/>

@@ -1,12 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Text;
 using Android.Content;
 using Android.Graphics;
 using Android.Views;
+using TechnicalChallengeProgress.Controls;
 using TechnicalChallengeProgress.Renderers;
-using TechnicalChallengeProgress.Views;
 using Xamarin.Forms;
 using Xamarin.Forms.Platform.Android;
 

@@ -1,16 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using Android;
-using Android.App;
-using Android.Content;
-using Android.Graphics.Drawables;
-using Android.Runtime;
-using Android.Util;
-using Android.Widget;
-using Xamarin.Forms;
+﻿using Xamarin.Forms;
 
-namespace TechnicalChallengeProgress.Views
+namespace TechnicalChallengeProgress.Controls
 {
     public class CircleImage : Image
     {
