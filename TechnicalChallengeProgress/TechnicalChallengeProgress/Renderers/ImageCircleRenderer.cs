@@ -4,55 +4,42 @@ using System.ComponentModel;
 using System.Text;
 using Android.Content;
 using Android.Graphics;
+using Android.Views;
 using TechnicalChallengeProgress.Renderers;
 using TechnicalChallengeProgress.Views;
 using Xamarin.Forms;
 using Xamarin.Forms.Platform.Android;
 
-[assembly: ExportRenderer(typeof(CircleImage),typeof(ImageCircleRenderer))]
+[assembly: ExportRenderer(typeof(CircleImage), typeof(ImageCircleRenderer))]
 namespace TechnicalChallengeProgress.Renderers
 {
     public class ImageCircleRenderer : ImageRenderer
     {
-        public ImageCircleRenderer() : base()
-        {
+        public ImageCircleRenderer() : base() { }
 
-        }
+        public ImageCircleRenderer(Context context) : base(context) { }
 
-        public ImageCircleRenderer(Context context) : base(context)
-        {
-
-        }
-        /// <summary>
-        /// Used for registration with dependency service
-        /// </summary>
         public async static void Init()
         {
             var temp = DateTime.Now;
         }
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="e"></param>
         protected override void OnElementChanged(ElementChangedEventArgs<Image> e)
         {
             base.OnElementChanged(e);
 
-            //if (e.OldElement == null)
-            //{
-            //    //Only enable hardware accelleration on lollipop
-            //    if ((int)Android.OS.Build.VERSION.SdkInt < 21)
-            //    {
-            //        SetLayerType(LayerType.Software, null);
-            //    }
-            //}
+            if (e.OldElement == null)
+            {
+                if ((int)Android.OS.Build.VERSION.SdkInt < 21)
+                {
+                    SetLayerType(LayerType.Software, null);
+                }
+            }
         }
 
         protected override void OnElementPropertyChanged(object sender, PropertyChangedEventArgs e)
         {
             base.OnElementPropertyChanged(sender, e);
-
 
             if (e.PropertyName == CircleImage.BorderColorProperty.PropertyName ||
               e.PropertyName == CircleImage.BorderThicknessProperty.PropertyName ||
@@ -62,19 +49,10 @@ namespace TechnicalChallengeProgress.Renderers
             }
         }
 
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="canvas"></param>
-        /// <param name="child"></param>
-        /// <param name="drawingTime"></param>
-        /// <returns></returns>
         protected override bool DrawChild(Canvas canvas, Android.Views.View child, long drawingTime)
         {
             try
             {
-
                 var radius = (float)Math.Min(Width, Height) / 2f;
 
                 var borderThickness = ((CircleImage)Element).BorderThickness;
@@ -89,27 +67,21 @@ namespace TechnicalChallengeProgress.Renderers
 
                 radius -= strokeWidth / 2f;
 
-
-
-
                 var path = new Path();
                 path.AddCircle(Width / 2.0f, Height / 2.0f, radius, Path.Direction.Ccw);
 
-
                 canvas.Save();
                 canvas.ClipPath(path);
-
-
 
                 var paint = new Paint
                 {
                     AntiAlias = true
                 };
+
                 paint.SetStyle(Paint.Style.Fill);
                 paint.Color = ((CircleImage)Element).FillColor.ToAndroid();
                 canvas.DrawPath(path, paint);
                 paint.Dispose();
-
 
                 var result = base.DrawChild(canvas, child, drawingTime);
 
@@ -118,7 +90,6 @@ namespace TechnicalChallengeProgress.Renderers
 
                 path = new Path();
                 path.AddCircle(Width / 2f, Height / 2f, radius, Path.Direction.Ccw);
-
 
                 if (strokeWidth > 0.0f)
                 {
