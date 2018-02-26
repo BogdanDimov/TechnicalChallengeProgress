@@ -1,23 +1,36 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:local="clr-namespace:TechnicalChallengeProgress"
              x:Class="TechnicalChallengeProgress.MainPage"
              xmlns:controls="clr-namespace:TechnicalChallengeProgress.Controls;"
              xmlns:viewModels="clr-namespace:TechnicalChallengeProgress.ViewModels;"
-             xmlns:effects="clr-namespace:TechnicalChallengeProgress.Effects;">
+             xmlns:effects="clr-namespace:TechnicalChallengeProgress.Effects;"
+             Title="Friends' Statuses Technical Challenge">
 
     <ContentPage.BindingContext>
         <viewModels:MainViewModel />
     </ContentPage.BindingContext>
 
-    <ListView x:Name="SocialUserView"
-              ItemsSource="{Binding SocialUsers}"
-              HasUnevenRows="True">
+    <ListView ItemsSource="{Binding SocialUsers}" HasUnevenRows="True">
         <ListView.ItemTemplate>
             <DataTemplate>
                 <ViewCell>
-                    <StackLayout Orientation="Horizontal">
+                    <StackLayout Orientation="Vertical" Padding="0,10">
+
+                        <StackLayout.Resources>
+                            <ResourceDictionary>
+                                <Style x:Key="ShadowEffectStyle" TargetType="Label">
+                                    <Style.Setters>
+                                        <Setter Property="effects:ShadowEffect.HasShadow" Value="True" />
+                                        <Setter Property="effects:ShadowEffect.Color" Value="Black" />
+                                        <Setter Property="effects:ShadowEffect.Radius" Value="10" />
+                                        <Setter Property="effects:ShadowEffect.DistanceX" Value="3" />
+                                        <Setter Property="effects:ShadowEffect.DistanceY" Value="3" />
+                                    </Style.Setters>
+                                </Style>
+                            </ResourceDictionary>
+                        </StackLayout.Resources>
+
                         <controls:CircleImage VerticalOptions="Center"
                                               HorizontalOptions="Center"
                                               WidthRequest="70"
@@ -27,22 +40,10 @@
                                               BorderColor="Black"
                                               BorderThickness="2.0"/>
 
-                            <Label Text="{Binding Name}" FontAttributes="Bold" HorizontalOptions="Center" VerticalOptions="CenterAndExpand">
-                                <Label.Effects>
-                                    <effects:ShadowEffect Radius="5" DistanceX="5" DistanceY="5">
-                                        <effects:ShadowEffect.Color>
-                                            <OnPlatform x:TypeArguments="Color">
-                                                <On Platform="iOS" Value="Black" />
-                                                <On Platform="Android" Value="Red" />
-                                            </OnPlatform>
-                                        </effects:ShadowEffect.Color>
-                                    </effects:ShadowEffect>
-                                </Label.Effects>
-                            </Label>
-                            
-                        <Label Text="{Binding SocialNetwork}"/>
-                        <Label Text="{Binding StatusMessage}"/>
-                        <Label Text="{Binding TimeOfPosting}"/>
+                        <Label Text="{Binding Name}" Style="{StaticResource ShadowEffectStyle}" FontSize="20" FontAttributes="Bold" HorizontalOptions="Center"/>
+                        <Label Text="{Binding SocialNetwork, StringFormat='Social Network: {0}'}" Style="{StaticResource ShadowEffectStyle}" FontSize="15" HorizontalOptions="Center"/>
+                        <Label Text="{Binding StatusMessage, StringFormat='Message: {0}'}" Style="{StaticResource ShadowEffectStyle}" FontSize="15" HorizontalOptions="Center"/>
+                        <Label Text="{Binding TimeOfPosting, StringFormat='Time posted: {0}'}" Style="{StaticResource ShadowEffectStyle}" FontSize="15" HorizontalOptions="Center"/>
                     </StackLayout>
                 </ViewCell>
             </DataTemplate>
