@@ -4,7 +4,8 @@
              x:Class="TechnicalChallengeProgress.MainPage"
              xmlns:controls="clr-namespace:TechnicalChallengeProgress.Controls;"
              xmlns:viewModels="clr-namespace:TechnicalChallengeProgress.ViewModels;"
-             xmlns:effects="clr-namespace:TechnicalChallengeProgress.Effects;">
+             xmlns:effects="clr-namespace:TechnicalChallengeProgress.Effects;"
+             Title="Friends' Statuses Technical Challenge">
 
     <ContentPage.BindingContext>
         <viewModels:MainViewModel />
@@ -14,17 +15,17 @@
         <ListView.ItemTemplate>
             <DataTemplate>
                 <ViewCell>
-                    <StackLayout Orientation="Vertical" Padding="0,10,0,10">
+                    <StackLayout Orientation="Vertical" Padding="0,10">
 
                         <StackLayout.Resources>
                             <ResourceDictionary>
                                 <Style x:Key="ShadowEffectStyle" TargetType="Label">
                                     <Style.Setters>
                                         <Setter Property="effects:ShadowEffect.HasShadow" Value="True" />
-                                        <Setter Property="effects:ShadowEffect.Color" Value="DarkBlue" />
-                                        <Setter Property="effects:ShadowEffect.Radius" Value="3.0" />
-                                        <Setter Property="effects:ShadowEffect.DistanceX" Value="3.0" />
-                                        <Setter Property="effects:ShadowEffect.DistanceY" Value="3.0" />
+                                        <Setter Property="effects:ShadowEffect.Color" Value="Black" />
+                                        <Setter Property="effects:ShadowEffect.Radius" Value="10" />
+                                        <Setter Property="effects:ShadowEffect.DistanceX" Value="3" />
+                                        <Setter Property="effects:ShadowEffect.DistanceY" Value="3" />
                                     </Style.Setters>
                                 </Style>
                             </ResourceDictionary>
@@ -39,10 +40,10 @@
                                               BorderColor="Black"
                                               BorderThickness="2.0"/>
 
-                        <Label Text="{Binding Name}" Style="{StaticResource ShadowEffectStyle}" FontAttributes="Bold" HorizontalOptions="Center"/>
-                        <Label Text="{Binding SocialNetwork, StringFormat='Social Network: {0}'}" Style="{StaticResource ShadowEffectStyle}" HorizontalOptions="Center"/>
-                        <Label Text="{Binding StatusMessage, StringFormat='Message: {0}'}" Style="{StaticResource ShadowEffectStyle}" HorizontalOptions="Center"/>
-                        <Label Text="{Binding TimeOfPosting, StringFormat='Time posted: {0}'}" Style="{StaticResource ShadowEffectStyle}" HorizontalOptions="Center"/>
+                        <Label Text="{Binding Name}" Style="{StaticResource ShadowEffectStyle}" FontSize="20" FontAttributes="Bold" HorizontalOptions="Center"/>
+                        <Label Text="{Binding SocialNetwork, StringFormat='Social Network: {0}'}" Style="{StaticResource ShadowEffectStyle}" FontSize="15" HorizontalOptions="Center"/>
+                        <Label Text="{Binding StatusMessage, StringFormat='Message: {0}'}" Style="{StaticResource ShadowEffectStyle}" FontSize="15" HorizontalOptions="Center"/>
+                        <Label Text="{Binding TimeOfPosting, StringFormat='Time posted: {0}'}" Style="{StaticResource ShadowEffectStyle}" FontSize="15" HorizontalOptions="Center"/>
                     </StackLayout>
                 </ViewCell>
             </DataTemplate>
