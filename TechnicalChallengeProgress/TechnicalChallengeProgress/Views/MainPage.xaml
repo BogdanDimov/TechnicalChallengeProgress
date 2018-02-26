@@ -17,13 +17,14 @@
         <ListView.ItemTemplate>
             <DataTemplate>
                 <ViewCell>
-                    <StackLayout Orientation="Vertical" Padding="0,20,0,0">
+                    <StackLayout Orientation="Vertical" Padding="0,10,0,10">
 
                         <StackLayout.Resources>
                             <ResourceDictionary>
                                 <Style x:Key="ShadowEffectStyle" TargetType="Label">
                                     <Style.Setters>
                                         <Setter Property="effects:ShadowEffect.HasShadow" Value="True" />
+                                        <Setter Property="effects:ShadowEffect.Color" Value="DarkRed" />
                                         <Setter Property="effects:ShadowEffect.Radius" Value="5" />
                                         <Setter Property="effects:ShadowEffect.DistanceX" Value="5" />
                                         <Setter Property="effects:ShadowEffect.DistanceY" Value="5" />
