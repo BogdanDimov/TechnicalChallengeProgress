@@ -1,4 +1,5 @@
 ﻿using System;
+using Xamarin.Forms;
 
 namespace TechnicalChallengeProgress.Models
 {
@@ -12,6 +13,6 @@ namespace TechnicalChallengeProgress.Models
 
         public DateTime TimeOfPosting { get; set; }
 
-        public Uri Picture { get; set; }
+        public ImageSource ImageSource { get; set; }
     }
 }

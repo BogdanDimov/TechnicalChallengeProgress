@@ -36,7 +36,7 @@
                                               WidthRequest="70"
                                               HeightRequest="70"
                                               Aspect="Fill"
-                                              Source="{Binding Picture}"
+                                              Source="{Binding ImageSource}"
                                               BorderColor="Black"
                                               BorderThickness="2.0"/>
 
