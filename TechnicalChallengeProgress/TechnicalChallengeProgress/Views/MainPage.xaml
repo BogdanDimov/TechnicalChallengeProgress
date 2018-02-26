@@ -11,27 +11,27 @@
         <viewModels:MainViewModel />
     </ContentPage.BindingContext>
 
-    <ContentPage.Resources>
-        <ResourceDictionary>
-            <Style x:Key="ShadowEffectStyle" TargetType="Label">
-                <Style.Setters>
-                    <Setter Property="effects:ShadowEffect.HasShadow" Value="True" />
-                    <Setter Property="effects:ShadowEffect.Color" Value="Red" />
-                    <Setter Property="effects:ShadowEffect.Radius" Value="5" />
-                    <Setter Property="effects:ShadowEffect.DistanceX" Value="5" />
-                    <Setter Property="effects:ShadowEffect.DistanceY" Value="5" />
-                </Style.Setters>
-            </Style>
-        </ResourceDictionary>
-    </ContentPage.Resources>
-
     <ListView x:Name="SocialUserView"
               ItemsSource="{Binding SocialUsers}"
               HasUnevenRows="True">
         <ListView.ItemTemplate>
             <DataTemplate>
                 <ViewCell>
-                    <StackLayout Orientation="Vertical">
+                    <StackLayout Orientation="Vertical" Padding="0,20,0,0">
+
+                        <StackLayout.Resources>
+                            <ResourceDictionary>
+                                <Style x:Key="ShadowEffectStyle" TargetType="Label">
+                                    <Style.Setters>
+                                        <Setter Property="effects:ShadowEffect.HasShadow" Value="True" />
+                                        <Setter Property="effects:ShadowEffect.Radius" Value="5" />
+                                        <Setter Property="effects:ShadowEffect.DistanceX" Value="5" />
+                                        <Setter Property="effects:ShadowEffect.DistanceY" Value="5" />
+                                    </Style.Setters>
+                                </Style>
+                            </ResourceDictionary>
+                        </StackLayout.Resources>
+
                         <controls:CircleImage VerticalOptions="Center"
                                               HorizontalOptions="Center"
                                               WidthRequest="70"
@@ -43,7 +43,7 @@
 
                         <Label Text="{Binding Name}" FontAttributes="Bold" HorizontalOptions="Center" VerticalOptions="CenterAndExpand">
                             <!--<Label.Effects>
-                                <effects:ShadowEffect Radius="5" DistanceX="5" DistanceY="5">
+                                <effects:ShadowEffect HasShadow="True" Radius="5" DistanceX="5" DistanceY="5">
                                     <effects:ShadowEffect.Color>
                                         <OnPlatform x:TypeArguments="Color">
                                             <On Platform="iOS" Value="Black" />
@@ -54,9 +54,9 @@
                             </Label.Effects>-->
                         </Label>
 
-                        <Label Text="{Binding SocialNetwork, StringFormat='Social Network: {0}'}" Style="{StaticResource ShadowEffectStyle}"/>
-                        <Label Text="{Binding StatusMessage, StringFormat='Message: {0}'}" Style="{StaticResource ShadowEffectStyle}"/>
-                        <Label Text="{Binding TimeOfPosting, StringFormat='Time posted: {0}'}" Style="{StaticResource ShadowEffectStyle}"/>
+                        <Label Text="{Binding SocialNetwork, StringFormat='Social Network: {0}'}" Style="{StaticResource ShadowEffectStyle}" HorizontalOptions="Center"/>
+                        <Label Text="{Binding StatusMessage, StringFormat='Message: {0}'}" Style="{StaticResource ShadowEffectStyle}" HorizontalOptions="Center"/>
+                        <Label Text="{Binding TimeOfPosting, StringFormat='Time posted: {0}'}" Style="{StaticResource ShadowEffectStyle}" HorizontalOptions="Center"/>
                     </StackLayout>
                 </ViewCell>
             </DataTemplate>

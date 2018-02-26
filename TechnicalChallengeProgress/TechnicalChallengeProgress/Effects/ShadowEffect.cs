@@ -16,7 +16,6 @@ namespace TechnicalChallengeProgress.Effects
     //    public ShadowEffect() : base("MyCompany.LabelShadowEffect") { }
     //}
 
-
     public static class ShadowEffect
     {
         public static readonly BindableProperty HasShadowProperty =

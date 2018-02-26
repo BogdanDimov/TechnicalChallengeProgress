@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel;
 using System.Linq;
 using TechnicalChallengeProgress.Droid.Effects;
 using TechnicalChallengeProgress.Effects;
@@ -57,9 +58,7 @@ namespace TechnicalChallengeProgress.Droid.Effects
             }
         }
 
-        protected override void OnDetached()
-        {
-        }
+        protected override void OnDetached() { }
 
         void UpdateControl()
         {
@@ -83,6 +82,26 @@ namespace TechnicalChallengeProgress.Droid.Effects
         {
             distanceX = (float)ShadowEffect.GetDistanceX(Element);
             distanceY = (float)ShadowEffect.GetDistanceY(Element);
+        }
+
+        protected override void OnElementPropertyChanged(PropertyChangedEventArgs args)
+        {
+            if (args.PropertyName == ShadowEffect.RadiusProperty.PropertyName)
+            {
+                UpdateRadius();
+                UpdateControl();
+            }
+            else if (args.PropertyName == ShadowEffect.ColorProperty.PropertyName)
+            {
+                UpdateColor();
+                UpdateControl();
+            }
+            else if (args.PropertyName == ShadowEffect.DistanceXProperty.PropertyName ||
+                     args.PropertyName == ShadowEffect.DistanceYProperty.PropertyName)
+            {
+                UpdateOffset();
+                UpdateControl();
+            }
         }
     }
 }
