@@ -3,19 +3,6 @@ using Xamarin.Forms;
 
 namespace TechnicalChallengeProgress.Effects
 {
-    //public class ShadowEffect : RoutingEffect
-    //{
-    //    public float Radius { get; set; }
-
-    //    public Color Color { get; set; }
-
-    //    public float DistanceX { get; set; }
-
-    //    public float DistanceY { get; set; }
-
-    //    public ShadowEffect() : base("MyCompany.LabelShadowEffect") { }
-    //}
-
     public static class ShadowEffect
     {
         public static readonly BindableProperty HasShadowProperty =
@@ -39,9 +26,9 @@ namespace TechnicalChallengeProgress.Effects
             view.SetValue(HasShadowProperty, value);
         }
 
-        public static float GetRadius(BindableObject view)
+        public static double GetRadius(BindableObject view)
         {
-            return (float)view.GetValue(RadiusProperty);
+            return (double)view.GetValue(RadiusProperty);
         }
 
         public static void SetRadius(BindableObject view, float value)
@@ -49,19 +36,19 @@ namespace TechnicalChallengeProgress.Effects
             view.SetValue(RadiusProperty, value);
         }
 
-        public static void SetColor(BindableObject view, Color value)
-        {
-            view.SetValue(ColorProperty, value);
-        }
-
         public static Color GetColor(BindableObject view)
         {
             return (Color)view.GetValue(ColorProperty);
         }
 
-        public static float GetDistanceX(BindableObject view)
+        public static void SetColor(BindableObject view, Color value)
         {
-            return (float)view.GetValue(DistanceXProperty);
+            view.SetValue(ColorProperty, value);
+        }
+
+        public static double GetDistanceX(BindableObject view)
+        {
+            return (double)view.GetValue(DistanceXProperty);
         }
 
         public static void SetDistanceX(BindableObject view, float value)
@@ -69,9 +56,9 @@ namespace TechnicalChallengeProgress.Effects
             view.SetValue(DistanceXProperty, value);
         }
 
-        public static float GetDistanceY(BindableObject view)
+        public static double GetDistanceY(BindableObject view)
         {
-            return (float)view.GetValue(DistanceYProperty);
+            return (double)view.GetValue(DistanceYProperty);
         }
 
         public static void SetDistanceY(BindableObject view, float value)

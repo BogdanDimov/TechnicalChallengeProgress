@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel;
 using System.Linq;
 using CoreGraphics;
 using TechnicalChallengeProgress.Effects;
@@ -8,6 +9,7 @@ using Xamarin.Forms;
 
 [assembly: ResolutionGroupName("MyCompany")]
 [assembly: ExportEffect(typeof(LabelShadowEffect), "LabelShadowEffect")]
+
 namespace TechnicalChallengeProgress.iOS.Effects
 {
     public class LabelShadowEffect : PlatformEffect
@@ -16,14 +18,10 @@ namespace TechnicalChallengeProgress.iOS.Effects
         {
             try
             {
-                var effect = (ShadowEffect)Element.Effects.FirstOrDefault(e => e is ShadowEffect);
-                if (effect != null)
-                {
-                    Control.Layer.CornerRadius = effect.Radius;
-                    Control.Layer.ShadowColor = effect.Color.ToCGColor();
-                    Control.Layer.ShadowOffset = new CGSize(effect.DistanceX, effect.DistanceY);
-                    Control.Layer.ShadowOpacity = 1.0f;
-                }
+                UpdateRadius();
+                UpdateColor();
+                UpdateOffset();
+                Control.Layer.ShadowOpacity = 1.0f;
             }
             catch (Exception ex)
             {
@@ -31,6 +29,42 @@ namespace TechnicalChallengeProgress.iOS.Effects
             }
         }
 
-        protected override void OnDetached() { }
+        protected override void OnDetached()
+        {
+        }
+
+        void UpdateRadius()
+        {
+            Control.Layer.CornerRadius = (nfloat) ShadowEffect.GetRadius(Element);
+        }
+
+        void UpdateColor()
+        {
+            Control.Layer.ShadowColor = ShadowEffect.GetColor(Element).ToCGColor();
+        }
+
+        void UpdateOffset()
+        {
+            Control.Layer.ShadowOffset = new CGSize(
+                (double) ShadowEffect.GetDistanceX(Element),
+                (double) ShadowEffect.GetDistanceY(Element));
+        }
+
+        protected override void OnElementPropertyChanged(PropertyChangedEventArgs args)
+        {
+            if (args.PropertyName == ShadowEffect.RadiusProperty.PropertyName)
+            {
+                UpdateRadius();
+            }
+            else if (args.PropertyName == ShadowEffect.ColorProperty.PropertyName)
+            {
+                UpdateColor();
+            }
+            else if (args.PropertyName == ShadowEffect.DistanceXProperty.PropertyName ||
+                     args.PropertyName == ShadowEffect.DistanceYProperty.PropertyName)
+            {
+                UpdateOffset();
+            }
+        }
     }
 }
