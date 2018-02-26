@@ -1,6 +1,5 @@
 ﻿using System;
 using System.ComponentModel;
-using System.Linq;
 using TechnicalChallengeProgress.Droid.Effects;
 using TechnicalChallengeProgress.Effects;
 using Xamarin.Forms.Platform.Android;

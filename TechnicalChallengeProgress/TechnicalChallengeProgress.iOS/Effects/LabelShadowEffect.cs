@@ -1,6 +1,5 @@
 ﻿using System;
 using System.ComponentModel;
-using System.Linq;
 using CoreGraphics;
 using TechnicalChallengeProgress.Effects;
 using TechnicalChallengeProgress.iOS.Effects;

@@ -18,6 +18,7 @@
     </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)Controls\CircleImage.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Effects\ShadowEffect.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Helpers\ImageResourceExtension.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Services\SocialNetworksServices.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\MainViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Views\MainPage.xaml.cs">
@@ -27,5 +28,11 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="$(MSBuildThisFileDirectory)Controls\" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Images\babapena.jpg" />
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Images\nafarforiy.jpg" />
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Images\trendafil.JPG" />
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Images\tsenko.jpg" />
   </ItemGroup>
 </Project>

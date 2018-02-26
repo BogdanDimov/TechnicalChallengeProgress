@@ -1,9 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
+﻿using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
-using System.Text;
 using TechnicalChallengeProgress.Models;
 using TechnicalChallengeProgress.Services;
 
@@ -28,9 +25,7 @@ namespace TechnicalChallengeProgress.ViewModels
 
         public MainViewModel()
         {
-            var socialNetworksServices = new SocialNetworksServices();
-
-            SocialUsers = socialNetworksServices.GetUsers();
+            SocialUsers = SocialNetworksServices.GetUsers();
         }
 
         public event PropertyChangedEventHandler PropertyChanged;

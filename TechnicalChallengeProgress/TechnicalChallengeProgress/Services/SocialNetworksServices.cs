@@ -1,15 +1,12 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Text;
 using TechnicalChallengeProgress.Models;
-using Xamarin.Forms;
 
 namespace TechnicalChallengeProgress.Services
 {
-    public class SocialNetworksServices
+    public static class SocialNetworksServices
     {
-        public ObservableCollection<User> GetUsers()
+        public static ObservableCollection<User> GetUsers()
         {
             var list = new ObservableCollection<User>
             {
@@ -19,7 +16,7 @@ namespace TechnicalChallengeProgress.Services
                     SocialNetwork = "Facebook",
                     StatusMessage = "Tarsya si bulka. Ima li kandidatki?",
                     TimeOfPosting = DateTime.Today,
-                    Picture = new System.Uri("http://zvezdichka.blog.bg/photos/8593/DSCN2624_resize.JPG")
+                    Picture = new Uri("http://zvezdichka.blog.bg/photos/8593/DSCN2624_resize.JPG")
                 },
                 new User()
                 {
@@ -27,7 +24,7 @@ namespace TechnicalChallengeProgress.Services
                     SocialNetwork = "Twitter",
                     StatusMessage = "Tarsya si greshnitsi, da im oprostya grehovete.",
                     TimeOfPosting = DateTime.Today,
-                    Picture = new System.Uri("https://img.bg.sof.cmestatic.com/media/images/620x349/Jan2012/1369485063.jpg")
+                    Picture = new Uri("https://img.bg.sof.cmestatic.com/media/images/620x349/Jan2012/1369485063.jpg")
                 },
                 new User()
                 {
@@ -35,7 +32,7 @@ namespace TechnicalChallengeProgress.Services
                     SocialNetwork = "Instagram",
                     StatusMessage = "Vizhte novata mi dieta s kiselo zele",
                     TimeOfPosting = DateTime.Today,
-                    Picture = new System.Uri("http://sbj-bg.eu/thumbs/923_11416.jpg")
+                    Picture = new Uri("http://sbj-bg.eu/thumbs/923_11416.jpg")
                 },
                 new User()
                 {
@@ -43,7 +40,7 @@ namespace TechnicalChallengeProgress.Services
                     SocialNetwork = "LinkedIn",
                     StatusMessage = "Bezplatno more za vsichki glasuvali za men",
                     TimeOfPosting = DateTime.Today,
-                    Picture = new System.Uri("https://static.fakti.bg/news2017/218929/172bf46618de6d17efe03570490bd221_big.jpg")
+                    Picture = new Uri("https://static.fakti.bg/news2017/218929/172bf46618de6d17efe03570490bd221_big.jpg")
                 }
             };
 
