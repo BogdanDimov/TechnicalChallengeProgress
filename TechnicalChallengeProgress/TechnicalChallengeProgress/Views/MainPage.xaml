@@ -17,7 +17,7 @@
         <ListView.ItemTemplate>
             <DataTemplate>
                 <ViewCell>
-                    <StackLayout Orientation="Horizontal">
+                    <StackLayout Orientation="Vertical">
                         <controls:CircleImage VerticalOptions="Center"
                                               HorizontalOptions="Center"
                                               WidthRequest="70"
@@ -30,18 +30,18 @@
                         <Grid Padding="0,20,0,0">
                             <Label Text="{Binding Name}" FontAttributes="Bold" HorizontalOptions="Center" VerticalOptions="CenterAndExpand">
                                 <Label.Effects>
-                                    <effects:ShadowEffect Radius="20" DistanceX="20" DistanceY="20">
+                                    <effects:ShadowEffect Radius="5" DistanceX="5" DistanceY="5">
                                         <effects:ShadowEffect.Color>
                                             <OnPlatform x:TypeArguments="Color">
                                                 <On Platform="iOS" Value="Black" />
-                                                <On Platform="Android" Value="Red" />
+                                                <On Platform="Android" Value="Black" />
                                             </OnPlatform>
                                         </effects:ShadowEffect.Color>
                                     </effects:ShadowEffect>
                                 </Label.Effects>
-                            </Label> />
+                            </Label>
                         </Grid>
-                            
+
                         <Label Text="{Binding SocialNetwork}"/>
                         <Label Text="{Binding StatusMessage}"/>
                         <Label Text="{Binding TimeOfPosting}"/>
