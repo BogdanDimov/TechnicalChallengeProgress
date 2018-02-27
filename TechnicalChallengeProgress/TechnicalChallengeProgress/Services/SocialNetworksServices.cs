@@ -17,7 +17,7 @@ namespace TechnicalChallengeProgress.Services
                     Name = "Trendafil",
                     SocialNetwork = "Facebook",
                     StatusMessage = "Tarsya si bulka. Ima li kandidatki?",
-                    TimeOfPosting = DateTime.Today,
+                    TimeOfPosting = DateTime.Now.AddHours(-1.5).ToString("f"),
                     ImageSource = ImageSource.FromResource(ResourceHelper.GetResourceFromFileName("trendafil.JPG"))
                 },
                 new User()
@@ -25,7 +25,7 @@ namespace TechnicalChallengeProgress.Services
                     Name = "Otets Nafarforiy",
                     SocialNetwork = "Twitter",
                     StatusMessage = "Tarsya si greshnitsi, da im oprostya grehovete.",
-                    TimeOfPosting = DateTime.Today,
+                    TimeOfPosting = DateTime.Now.AddHours(-3).ToString("f"),
                     ImageSource = ImageSource.FromResource(ResourceHelper.GetResourceFromFileName("nafarforiy.jpg"))
                 },
                 new User()
@@ -33,7 +33,7 @@ namespace TechnicalChallengeProgress.Services
                     Name = "Pena",
                     SocialNetwork = "Instagram",
                     StatusMessage = "Vizhte novata mi dieta s kiselo zele",
-                    TimeOfPosting = DateTime.Today,
+                    TimeOfPosting = DateTime.Now.AddHours(-0.40).ToString("f"),
                     ImageSource = ImageSource.FromResource(ResourceHelper.GetResourceFromFileName("babapena.jpg"))
                 },
                 new User()
@@ -41,7 +41,7 @@ namespace TechnicalChallengeProgress.Services
                     Name = "Tsenko Chokov",
                     SocialNetwork = "LinkedIn",
                     StatusMessage = "Bezplatno more za vsichki glasuvali za men",
-                    TimeOfPosting = DateTime.Today,
+                    TimeOfPosting = DateTime.Now.AddHours(-5.55).ToString("f"),
                     ImageSource = ImageSource.FromResource(ResourceHelper.GetResourceFromFileName("tsenko.jpg"))
                 }
             };

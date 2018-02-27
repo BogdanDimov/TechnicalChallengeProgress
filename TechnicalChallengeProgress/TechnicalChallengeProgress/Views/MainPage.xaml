@@ -15,7 +15,7 @@
         <ListView.ItemTemplate>
             <DataTemplate>
                 <ViewCell>
-                    <StackLayout Orientation="Vertical" Padding="0,10">
+                    <StackLayout Orientation="Vertical" Padding="10">
 
                         <StackLayout.Resources>
                             <ResourceDictionary>
@@ -37,13 +37,13 @@
                                               HeightRequest="70"
                                               Aspect="Fill"
                                               Source="{Binding ImageSource}"
-                                              BorderColor="Black"
+                                              BorderColor="DarkBlue"
                                               BorderThickness="2.0"/>
 
-                        <Label Text="{Binding Name}" Style="{StaticResource ShadowEffectStyle}" FontSize="20" FontAttributes="Bold" HorizontalOptions="Center"/>
-                        <Label Text="{Binding SocialNetwork, StringFormat='Social Network: {0}'}" Style="{StaticResource ShadowEffectStyle}" FontSize="15" HorizontalOptions="Center"/>
-                        <Label Text="{Binding StatusMessage, StringFormat='Message: {0}'}" Style="{StaticResource ShadowEffectStyle}" FontSize="15" HorizontalOptions="Center"/>
-                        <Label Text="{Binding TimeOfPosting, StringFormat='Time posted: {0}'}" Style="{StaticResource ShadowEffectStyle}" FontSize="15" HorizontalOptions="Center"/>
+                        <Label Text="{Binding Name}" Style="{StaticResource ShadowEffectStyle}" FontSize="20" FontAttributes="Bold" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" HorizontalTextAlignment="Center"/>
+                        <Label Text="{Binding SocialNetwork, StringFormat='Social Network: {0}'}" Style="{StaticResource ShadowEffectStyle}" FontSize="15" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" HorizontalTextAlignment="Center"/>
+                        <Label Text="{Binding StatusMessage, StringFormat='Message: {0}'}" Style="{StaticResource ShadowEffectStyle}" FontSize="15" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" HorizontalTextAlignment="Center"/>
+                        <Label Text="{Binding TimeOfPosting, StringFormat='Time posted: {0}'}" Style="{StaticResource ShadowEffectStyle}" FontSize="15" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" HorizontalTextAlignment="Center"/>
                     </StackLayout>
                 </ViewCell>
             </DataTemplate>
