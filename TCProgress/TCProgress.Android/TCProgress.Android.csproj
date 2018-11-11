@@ -6,7 +6,7 @@
     <ProjectGuid>{1123F5F5-F724-44FE-A970-5C451B3C4462}</ProjectGuid>
     <ProjectTypeGuids>{EFBA0AD7-5A72-4C68-AF49-83D382785DCF};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
-    <RootNamespace>TechnicalChallengeProgress.Droid</RootNamespace>
+    <RootNamespace>TCProgress.Droid</RootNamespace>
     <AssemblyName>TechnicalChallengeProgress.Android</AssemblyName>
     <TargetFrameworkVersion>v8.1</TargetFrameworkVersion>
     <AndroidApplication>True</AndroidApplication>
