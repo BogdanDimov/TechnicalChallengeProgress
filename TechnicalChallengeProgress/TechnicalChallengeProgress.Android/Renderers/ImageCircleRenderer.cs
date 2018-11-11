@@ -59,7 +59,7 @@ namespace TechnicalChallengeProgress.Droid.Renderers
 
                 if (borderThickness > 0)
                 {
-                    var logicalDensity = Xamarin.Forms.Forms.Context.Resources.DisplayMetrics.Density;
+                    var logicalDensity = Forms.Context.Resources.DisplayMetrics.Density;
                     strokeWidth = (float)Math.Ceiling(borderThickness * logicalDensity + .5f);
                 }
 
