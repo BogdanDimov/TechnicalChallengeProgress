@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TCProgress.MainPage"
+             xmlns:controls="clr-namespace:TCProgress.Controls"
+             xmlns:effects="clr-namespace:TCProgress.Effects"
+             xmlns:viewModels="clr-namespace:TCProgress.ViewModels"
+             Title="Friends' Statuses Technical Challenge">
+
+    <ContentPage.BindingContext>
+        <viewModels:MainViewModel />
+    </ContentPage.BindingContext>
+
+    <ListView ItemsSource="{Binding SocialUsers}" HasUnevenRows="True">
+        <ListView.ItemTemplate>
+            <DataTemplate>
+                <ViewCell>
+                    <StackLayout Orientation="Vertical" Padding="10">
+
+                        <StackLayout.Resources>
+                            <ResourceDictionary>
+                                <Style x:Key="ShadowEffectStyle" TargetType="Label">
+                                    <Style.Setters>
+                                        <Setter Property="effects:ShadowEffect.HasShadow" Value="True" />
+                                        <Setter Property="effects:ShadowEffect.Color" Value="Black" />
+                                        <Setter Property="effects:ShadowEffect.Radius" Value="10" />
+                                        <Setter Property="effects:ShadowEffect.DistanceX" Value="3" />
+                                        <Setter Property="effects:ShadowEffect.DistanceY" Value="3" />
+                                    </Style.Setters>
+                                </Style>
+                            </ResourceDictionary>
+                        </StackLayout.Resources>
+
+                        <controls:CircleImage VerticalOptions="Center"
+                                              HorizontalOptions="Center"
+                                              WidthRequest="70"
+                                              HeightRequest="70"
+                                              Aspect="Fill"
+                                              Source="{Binding ImageSource}"
+                                              BorderColor="DarkBlue"
+                                              BorderThickness="2.0"/>
+
+                        <Label Text="{Binding Name}" Style="{StaticResource ShadowEffectStyle}" FontSize="20" FontAttributes="Bold" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" HorizontalTextAlignment="Center"/>
+                        <Label Text="{Binding SocialNetwork, StringFormat='Social Network: {0}'}" Style="{StaticResource ShadowEffectStyle}" FontSize="15" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" HorizontalTextAlignment="Center"/>
+                        <Label Text="{Binding StatusMessage, StringFormat='Message: {0}'}" Style="{StaticResource ShadowEffectStyle}" FontSize="15" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" HorizontalTextAlignment="Center"/>
+                        <Label Text="{Binding TimeOfPosting, StringFormat='Time posted: {0}'}" Style="{StaticResource ShadowEffectStyle}" FontSize="15" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" HorizontalTextAlignment="Center"/>
+                    </StackLayout>
+                </ViewCell>
+            </DataTemplate>
+        </ListView.ItemTemplate>
+    </ListView>
+
+</ContentPage>
